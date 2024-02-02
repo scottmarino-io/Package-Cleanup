@@ -49,7 +49,7 @@ $results = Invoke-Sqlcmd -TrustServerCertificate -ServerInstance $sqlsrv -Databa
 $result += $results
 
 $items = @()
-$items += $results | Where-Object { $_.'Install Date' -lt 20240201 }
+$items += $results | Where-Object { $_.'Install Date' -gt 20240201 }
 $items | Format-Table -AutoSize
 
 function GetInfoApplications {
@@ -94,3 +94,8 @@ $AppPath = GetInfoApplications | select-object AppName, Location, Technology | W
 $AllApps += $AppPath
 }
 $AllApps #| Format-Table -AutoSize
+
+Remove-CMApplicationDeployment -ApplicationName $AllApps.AppName -Force
+Remove-CMApplication -Name $AllApps.AppName -Force
+Remove-Item -Recurse -Path $AllApps.Location -Force
+
