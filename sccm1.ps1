@@ -19,10 +19,14 @@
 
 import-module ConfigurationManager
 
-#New-PSDrive -name S01 -PSProvider CMSite -Root SERVER2   
+#New-PSDrive -name S01 -PSProvider CMSite -Root SERVER2
+if (-not (Get-PSDrive -Name S01 -PSProvider CMSite -ErrorAction SilentlyContinue)) {
+    New-PSDrive -Name S01 -PSProvider CMSite -Root SERVER2
+}
 
 set-location S01:
 
+# Set an
 $sqlsrv = 'SERVER2'
 $sqldb = 'CM_S01'
 $results = @()

@@ -1,3 +1,12 @@
+import-module ConfigurationManager
+
+#New-PSDrive -name S01 -PSProvider CMSite -Root SERVER2
+if (-not (Get-PSDrive -Name S01 -PSProvider CMSite -ErrorAction SilentlyContinue)) {
+    New-PSDrive -Name S01 -PSProvider CMSite -Root SERVER2
+}
+
+set-location S01:
+
 # Get the application
 $apps = Get-CMApplication #-Name "7-Zip 23.01 (x64 edition)"
 foreach ($app in $apps) {
