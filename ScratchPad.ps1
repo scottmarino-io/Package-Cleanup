@@ -1,5 +1,7 @@
 # Get the application
-$app = Get-CMApplication -Name "7-Zip 23.01 (x64 edition)"
+$apps = Get-CMApplication #-Name "7-Zip 23.01 (x64 edition)"
+foreach ($app in $apps) {
+
 
 # Access the SDMPackageXML property and cast it to an XML object
 $xml = [xml]$app.SDMPackageXML
@@ -17,6 +19,10 @@ $dtId
 $installerType
 $contentLocation
 
-}
+# $path = $xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
 
-$xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
+
+}}
+
+
+# $xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
