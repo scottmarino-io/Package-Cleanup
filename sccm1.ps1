@@ -1,11 +1,12 @@
 import-module ConfigurationManager
 
-New-PSDrive -name S01 -PSProvider CMSite -Root SERVER2   
+#New-PSDrive -name S01 -PSProvider CMSite -Root SERVER2   
 
 set-location S01:
 
 $sqlsrv = 'SERVER2'
 $sqldb = 'CM_S01'
+$AllApps = @()
 
 $apps = Get-CMApplicationDeployment
 
@@ -42,11 +43,14 @@ WHERE lac.DisplayName= `'$appname`' and CollectionName = `'$colname`'"
 $results=@()
 $results = Invoke-Sqlcmd -TrustServerCertificate -ServerInstance $sqlsrv -Database $sqldb -Query $query
 
-$result=@()
-$result += $results} #| Format-Table -AutoSize}
+#$results | Format-Table -AutoSize
 
+#$result=@()
+$result += $results
 
-$items += $result | Where-Object { $_.'Install Date' -lt 20240201 }
+$items = @()
+$items += $results | Where-Object { $_.'Install Date' -lt 20240201 }
+$items | Format-Table -AutoSize
 
 function GetInfoApplications {
    
@@ -86,4 +90,7 @@ function GetInfoApplications {
 
  
 Write-host "Applications" -ForegroundColor Yellow
-GetInfoApplications | select-object AppName, Location, Technology | Where-Object -Property AppName -like $items.Software | Format-Table -AutoSize 
+$AppPath = GetInfoApplications | select-object AppName, Location, Technology | Where-Object -Property AppName -like $items.Software # | Format-Table -AutoSize 
+$AllApps += $AppPath
+}
+$AllApps #| Format-Table -AutoSize
