@@ -1,0 +1,54 @@
+ <?xml version="1.0" encoding="utf-16"?><AppMgmtDigest 
+                                     xmlns="http://schemas.microsoft.com/SystemCenterConfigurationManager/2009/AppMgmtDigest"
+                                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Application
+                                     AuthoringScopeId="ScopeId_DE85B7D4-2543-406C-948F-96A40BBE92EF"
+                                     LogicalName="Application_20628f40-2d23-49aa-988c-d3e4c09bd0b4" Version="1"><DisplayInfo DefaultLanguage="en-US"><Info  
+                                     Language="en-US"><Title>7-Zip 23.01 (x64 edition)</Title><Description/><Publisher>7-Zip</Publisher><Version>23.01</Ver 
+                                     sion></Info></DisplayInfo><DeploymentTypes><DeploymentType
+                                     AuthoringScopeId="ScopeId_DE85B7D4-2543-406C-948F-96A40BBE92EF"
+                                     LogicalName="DeploymentType_d0d46c8b-1baf-4a11-8713-a06732996325" Version="1"/></DeploymentTypes><Title
+                                     ResourceId="Res_1065425750">7-Zip 23.01 (x64 edition)</Title><Description ResourceId="Res_1303271581"/><Publisher      
+                                     ResourceId="Res_1334044528">7-Zip</Publisher><SoftwareVersion
+                                     ResourceId="Res_169075022">23.01</SoftwareVersion><CustomId ResourceId="Res_311396171"/><Owners><User
+                                     Qualifier="LogonName" Id="scott"/></Owners><Contacts><User Qualifier="LogonName"
+                                     Id="scott"/></Contacts></Application><DeploymentType AuthoringScopeId="ScopeId_DE85B7D4-2543-406C-948F-96A40BBE92EF"   
+                                     LogicalName="DeploymentType_d0d46c8b-1baf-4a11-8713-a06732996325" Version="1"><Title
+                                     ResourceId="Res_1586909785">7-Zip 23.01 (x64 edition) - Windows Installer (*.msi file)</Title><DeploymentTechnology>GL 
+                                     OBAL/MSIDeploymentTechnology</DeploymentTechnology><Technology>MSI</Technology><Hosting>Native</Hosting><Installer     
+                                     Technology="MSI"><Contents><Content ContentId="Content_593ce1c4-45e6-447a-b8b7-6d5fa53221bb" Version="1"><File
+                                     Name="7z2301-x64.msi" Size="1933312"/><Location>\\server2\c$\Software\Source\7zip\</Location><PeerCache>true</PeerCach 
+                                     e><OnFastNetwork>Download</OnFastNetwork><OnSlowNetwork>DoNothing</OnSlowNetwork></Content></Contents><DetectAction><P 
+                                     rovider>MSI</Provider><Args><Arg Name="ExecutionContext" Type="String">Any</Arg><Arg Name="ProductCode"
+                                     Type="String">{23170F69-40C1-2702-2301-000001000000}</Arg><Arg Name="PackageCode" Type="String"/><Arg
+                                     Name="PatchCodes" Type="String[]"/></Args></DetectAction><InstallAction><Provider>MSI</Provider><Args><Arg
+                                     Name="InstallCommandLine" Type="String">msiexec /i "7z2301-x64.msi" /q</Arg><Arg Name="WorkingDirectory"
+                                     Type="String"/><Arg Name="ExecutionContext" Type="String">Any</Arg><Arg Name="RequiresLogOn" Type="String"/><Arg       
+                                     Name="RequiresElevatedRights" Type="Boolean">false</Arg><Arg Name="RequiresUserInteraction"
+                                     Type="Boolean">false</Arg><Arg Name="RequiresReboot" Type="Boolean">false</Arg><Arg Name="UserInteractionMode" 
+                                     Type="String">Normal</Arg><Arg Name="PostInstallBehavior" Type="String">BasedOnExitCode</Arg><Arg Name="ExecuteTime"   
+                                     Type="Int32">0</Arg><Arg Name="MaxExecuteTime" Type="Int32">120</Arg><Arg Name="RunAs32Bit"
+                                     Type="Boolean">false</Arg><Arg Name="SuccessExitCodes" Type="Int32[]"><Item>0</Item><Item>1707</Item></Arg><Arg        
+                                     Name="RebootExitCodes" Type="Int32[]"><Item>3010</Item></Arg><Arg Name="HardRebootExitCodes"
+                                     Type="Int32[]"><Item>1641</Item></Arg><Arg Name="FastRetryExitCodes"
+                                     Type="Int32[]"><Item>1618</Item></Arg></Args><Contents><Content
+                                     ContentId="Content_593ce1c4-45e6-447a-b8b7-6d5fa53221bb"
+                                     Version="1"/></Contents></InstallAction><UninstallAction><Provider>MSI</Provider><Args><Arg Name="InstallCommandLine"  
+                                     Type="String">msiexec /x {23170F69-40C1-2702-2301-000001000000} /q</Arg><Arg Name="WorkingDirectory"
+                                     Type="String"/><Arg Name="ExecutionContext" Type="String">Any</Arg><Arg Name="RequiresLogOn" Type="String"/><Arg       
+                                     Name="RequiresElevatedRights" Type="Boolean">false</Arg><Arg Name="RequiresUserInteraction"
+                                     Type="Boolean">false</Arg><Arg Name="RequiresReboot" Type="Boolean">false</Arg><Arg Name="UserInteractionMode"
+                                     Type="String">Normal</Arg><Arg Name="PostInstallBehavior" Type="String">BasedOnExitCode</Arg><Arg Name="ExecuteTime"   
+                                     Type="Int32">0</Arg><Arg Name="MaxExecuteTime" Type="Int32">120</Arg><Arg Name="RunAs32Bit"
+                                     Type="Boolean">false</Arg><Arg Name="SuccessExitCodes" Type="Int32[]"><Item>0</Item><Item>1707</Item></Arg><Arg        
+                                     Name="RebootExitCodes" Type="Int32[]"><Item>3010</Item></Arg><Arg Name="HardRebootExitCodes"
+                                     Type="Int32[]"><Item>1641</Item></Arg><Arg Name="FastRetryExitCodes"
+                                     Type="Int32[]"><Item>1618</Item></Arg></Args><Contents><Content
+                                     ContentId="Content_593ce1c4-45e6-447a-b8b7-6d5fa53221bb" Version="1"/></Contents></UninstallAction><CustomData><Detect 
+                                     ionMethod>ProductCode</DetectionMethod><ProductCode>{23170F69-40C1-2702-2301-000001000000}</ProductCode><ProductVersio 
+                                     n>23.01.00.0</ProductVersion><InstallCommandLine>msiexec /i "7z2301-x64.msi" /q</InstallCommandLine><InstallContent    
+                                     ContentId="Content_593ce1c4-45e6-447a-b8b7-6d5fa53221bb"
+                                     Version="1"/><UninstallSetting>SameAsInstall</UninstallSetting><UninstallCommandLine>msiexec /x
+                                     {23170F69-40C1-2702-2301-000001000000} /q</UninstallCommandLine><ExitCodes><ExitCode Code="0"
+                                     Class="Success"/><ExitCode Code="1707" Class="Success"/><ExitCode Code="3010" Class="SoftReboot"/><ExitCode
+                                     Code="1641" Class="HardReboot"/><ExitCode Code="1618" Class="FastRetry"/></ExitCodes><UserInstall>true</UserInstall><C 
+                                     ontainsSystemRegistryKeys>true</ContainsSystemRegistryKeys></CustomData></Installer></DeploymentType></AppMgmtDigest>  
