@@ -26,7 +26,7 @@ if (-not (Get-PSDrive -Name S01 -PSProvider CMSite -ErrorAction SilentlyContinue
 
 set-location S01:
 
-# Set an
+# Set and initialize variables
 $sqlsrv = 'SERVER2'
 $sqldb = 'CM_S01'
 $results = @()
@@ -71,7 +71,7 @@ ForEach ($app in $apps) {
 
     $result += $results
 
-    $items += $results | Where-Object { $_.'Install Date' -lt 20240201 }
+    $items += $results | Where-Object { $_.'Install Date' -eq 20240201 }
     $items | Format-Table -AutoSize
 
     function GetInfoApplications {
@@ -109,7 +109,7 @@ ForEach ($app in $apps) {
         }
     }
 
-    Write-host "Applications" -ForegroundColor Yellow
+    Write-host "Applications1" -ForegroundColor Yellow
     $AppPath = GetInfoApplications | select-object AppName, Location, Technology | Where-Object -Property AppName -like $items.Software # | Format-Table -AutoSize 
     $AllApps += $AppPath
 }

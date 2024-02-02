@@ -29,9 +29,23 @@ $installerType
 $contentLocation
 
 # $path = $xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
+# $xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
 
 
 }}
 
+function GetInfoAppDeployments {
 
-# $xml.AppMgmtDigest.DeploymentType.Installer.Contents.Content.Location
+    foreach ($Deployment in Get-CMApplicationDeployment) {        
+        $DeployMgmt = ([xml]$Deployment.SDMPackageXML).AppMgmtDigest
+        $DeployName = $DeployMgmt.DeploymentType.DeploymentTypeName
+    }
+
+        foreach ($DeploymentType in $DeployMgmt.DeploymentType) {
+            $DeployType = $DeploymentType.DeploymentTypeName
+            $DeployContent = $DeploymentType.Installer.Contents.Content.Location
+            $DeployInstaller = $DeploymentType.Installer.Technology
+            $DeployContent
+            $DeployInstaller
+        }
+}
