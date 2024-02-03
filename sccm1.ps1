@@ -71,7 +71,7 @@ ForEach ($app in $apps) {
 
     $result += $results
 
-    $items += $results | Where-Object { $_.'Install Date' -eq 20240201 }
+    $items += $results | Where-Object { $_.'Install Date' -lt 20240201 }
     $items | Format-Table -AutoSize
 
     function GetInfoApplications {
