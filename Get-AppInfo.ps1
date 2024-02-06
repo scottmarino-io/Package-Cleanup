@@ -31,7 +31,7 @@ function GetInfoApplications {
             $size = [math]::truncate($size/1MB)
 
             # Fill properties
-            $AppData = @{            
+            $AppData = [ordered]@{            
                 AppName            = $AppName
                 Location           = $DeploymentType.Installer.Contents.Content.Location
                 DeploymentTypeName = $DeploymentType.Title.InnerText
@@ -43,6 +43,8 @@ function GetInfoApplications {
                 CreatedBy          = $Application.CreatedBy
                 DateCreated        = $Application.DateCreated
                 DateLastModified   = $Application.DateLastModified
+                DependTaskSeq      = $Application.NumberofDependentTS
+                DependDepTypes     = $Application.NumberofDependentDTs
             }                           
 
             # Create object
@@ -53,3 +55,9 @@ function GetInfoApplications {
         }
     }
 }
+
+$ExpAppsNoDepend = GetInfoApplications | Where-Object {$_.Expired -eq 'True' -and $_.Deployed -eq 'False' `
+    -and $_.DependTaskSeq -eq '0' -and $_.DependDepTypes -eq '0'}
+
+$ExpAppsNoDepend | Export-Csv -Path C:\temp\ExpiredAppsNoDependency.csv -NoTypeInformation  
+
