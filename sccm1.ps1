@@ -73,7 +73,7 @@ ForEach ($app in $apps) {
 
     $items += $results | Where-Object { $_.'Install Date' -lt 20240201 }
     $items | Format-Table -AutoSize
-
+}
     function GetInfoApplications {
    
         foreach ($Application in Get-CMApplication) {
@@ -112,7 +112,7 @@ ForEach ($app in $apps) {
     Write-host "Applications1" -ForegroundColor Yellow
     $AppPath = GetInfoApplications | select-object AppName, Location, Technology | Where-Object -Property AppName -like $items.Software # | Format-Table -AutoSize 
     $AllApps += $AppPath
-}
+
 
 $AllApps #| Format-Table -AutoSize
 
