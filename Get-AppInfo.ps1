@@ -56,8 +56,17 @@ function GetInfoApplications {
     }
 }
 
-$ExpAppsNoDepend = GetInfoApplications | Where-Object {$_.Expired -eq 'True' -and $_.Deployed -eq 'False' `
-    -and $_.DependTaskSeq -eq '0' -and $_.DependDepTypes -eq '0'}
+$ExpAppsNoDepend = GetInfoApplications | Where-Object {($_.Expired -eq 'True') -and ($_.Deployed -eq 'False') `
+    -and ($_.DependTaskSeq -eq '0') -and ($_.DependDepTypes -eq '0')}
 
-$ExpAppsNoDepend | Export-Csv -Path C:\temp\ExpiredAppsNoDependency.csv -NoTypeInformation  
+# $ExpAppsNoDepend | Export-Csv -Path C:\temp\ExpiredAppsNoDependency.csv -NoTypeInformation  
+
+$choice = Read-Host "Do you want to export the results to a file? (Y/N)"
+if ($choice -eq 'Y' -or $choice -eq 'y') {
+    Write-Host "Exporting to C:\Temp\ExpiredAppsNoDependency.csv" -ForegroundColor Green
+    $ExpAppsNoDepend | Export-Csv -Path C:\temp\ExpiredAppsNoDependency.csv -NoTypeInformation
+} else {
+    Write-Host "You can read the values with the variable ExpAppsNoDepend"
+}
+
 
