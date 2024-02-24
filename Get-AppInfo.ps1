@@ -1,7 +1,7 @@
 import-module ConfigurationManager
 
 if (-not (Get-PSDrive -Name CAS -PSProvider CMSite -ErrorAction SilentlyContinue)) {
-    New-PSDrive -Name CAS -PSProvider CMSite -Root msf1vcas01p.corp.tjxcorp.net
+    New-PSDrive -Name CAS -PSProvider CMSite -Root YourSiteServer.yourdomain.com
 }
 
 set-location CAS:
